@@ -4,7 +4,7 @@ SELECT u.user_id, u.name, u.email, s.plan
 FROM Users u
 JOIN Subscriptions s ON u.user_id = s.user_id;
 
--- Example usage
+
 SELECT * FROM UserSubscriptions;
 
 
@@ -13,7 +13,7 @@ CREATE VIEW MovieCatalog AS
 SELECT title, genre, release_year
 FROM Movies;
 
--- Example usage
+
 SELECT * FROM MovieCatalog;
 
 
@@ -24,7 +24,7 @@ FROM WatchHistory w
 JOIN Users u ON w.user_id = u.user_id
 JOIN Movies m ON w.movie_id = m.movie_id;
 
--- Example usage
+
 SELECT * FROM WatchDetails;
 
 
@@ -35,5 +35,6 @@ FROM Users u
 LEFT JOIN WatchHistory w ON u.user_id = w.user_id
 GROUP BY u.user_id;
 
--- Example usage
+
 SELECT * FROM UserWatchCount;
+
