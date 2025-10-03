@@ -1,37 +1,38 @@
-PRAGMA foreign_keys = ON;
+CREATE DATABASE Movies_stream;
+use Movies_stream;
 
--- Users
+-- Users table
 CREATE TABLE Users (
-    user_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT NOT NULL,
-    email TEXT UNIQUE,
-    city TEXT
+    user_id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE,
+    city VARCHAR(50)
 );
 
--- Subscriptions
+-- Subscriptions table
 CREATE TABLE Subscriptions (
-    sub_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    user_id INTEGER,
-    plan TEXT NOT NULL, -- e.g. Basic, Standard, Premium
-    start_date TEXT NOT NULL,
-    end_date TEXT,
+    sub_id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT,
+    plan VARCHAR(20) NOT NULL, -- e.g. Basic, Standard, Premium
+    start_date DATE NOT NULL,
+    end_date DATE,
     FOREIGN KEY (user_id) REFERENCES Users(user_id) ON DELETE CASCADE
 );
 
--- Movies
+-- Movies table
 CREATE TABLE Movies (
-    movie_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    title TEXT NOT NULL,
-    genre TEXT,
-    release_year INTEGER
+    movie_id INT PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(200) NOT NULL,
+    genre VARCHAR(50),
+    release_year INT
 );
 
--- Watch History
+-- Watch History table
 CREATE TABLE WatchHistory (
-    history_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    user_id INTEGER,
-    movie_id INTEGER,
-    watch_date TEXT NOT NULL,
+    history_id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT,
+    movie_id INT,
+    watch_date DATE NOT NULL,
     FOREIGN KEY (user_id) REFERENCES Users(user_id) ON DELETE CASCADE,
     FOREIGN KEY (movie_id) REFERENCES Movies(movie_id) ON DELETE CASCADE
 );
