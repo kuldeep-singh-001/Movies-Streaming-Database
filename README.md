@@ -13,11 +13,10 @@ We practice:
 ---
 
 ## 🚀 How to Run
-1. Open **SQLite Studio** (or MySQL Workbench).
-2. Create a new database `movies.db`.
-3. Run `schema.sql` to create tables.
-4. Run `data.sql` to insert sample data.
-5. Run `views.sql` to create and test views.
+1. Open **MySQL Workbench** (or SQLite Studio).
+2. Run `schema.sql` to create the database and tables.
+3. Run `data.sql` to insert sample data.
+4. Run `views.sql` to create and test views.
 
 ---
 
@@ -44,5 +43,6 @@ After completing this project, you’ll be able to:
 - Use views for **abstraction** and **security**
 - Query data easily through reusable views
 - Manage views with `DROP VIEW` and `CREATE OR REPLACE VIEW`
+
 
 
